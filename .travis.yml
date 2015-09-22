@@ -1,0 +1,26 @@
+language: c
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - r-packages-precise
+    packages:
+      - r-base-dev
+      - pandoc
+
+env:
+  - R_LIBS_USER=~/R/library
+
+cache:
+  directories:
+    $R_LIBS_USER
+
+before_script:
+  - mkdir -p "$R_LIBS_USER"
+  - Rscript -e 'if (length(find.package("devtools", quiet = TRUE)) == 0L) { install.packages("devtools") }'
+  - Rscript -e 'devtools::update_packages("devtools")'
+  - Rscript -e 'devtools::install_deps()'
+
+script:
+  - Rscript -e 'devtools::check()'

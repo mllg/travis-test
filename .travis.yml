@@ -4,8 +4,8 @@ services:
   - docker
 
 before_install:
-  - docker pull rocker/devel
-  - docker run -d --name devel -v $(pwd -P):/mnt rocker/devel
+  - docker pull rocker/r-devel
+  - docker run -d --name devel -v $(pwd -P):/mnt rocker/r-devel
 
 script:
   # install package dependencies

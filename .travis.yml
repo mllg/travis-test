@@ -1,27 +1,22 @@
 language: c
 sudo: false
 
-addons:
-  apt:
-    sources:
-      - r-packages-precise
-    packages:
-      - r-base-dev
-      - r-recommended
-      - pandoc
+language: c
 
-env:
-  - R_LIBS_USER=~/R/library
+services:
+  - docker
 
-cache:
-  directories:
-    $R_LIBS_USER
-
-before_script:
-  - mkdir -p "$R_LIBS_USER"
-  - Rscript -e 'if (length(find.package("devtools", quiet = TRUE)) == 0L) { install.packages("devtools", repos = "http://cran.rstudio.com") }'
-  - Rscript -e 'devtools::update_packages("devtools", repos = "http://cran.rstudio.com")'
-  - Rscript -e 'devtools::install_deps(repos = "http://cran.rstudio.com", dependencies = TRUE)'
+before_install:
+  - docker pull bioconductor/devel_base
+  - docker run -d --name devel -v $(pwd -P):/mnt bioconductor/devel_base
+  - docker exec devel Rscript -e 'install.packages("devtools")'
 
 script:
-  - Rscript -e 'devtools::check()'
+  # install package dependencies and BiocCheck
+  - docker exec devel /bin/sh -c "cd /mnt;Rscript -e 'options(repos=BiocInstaller::biocinstallRepos());devtools::install_deps(dep=T);install.packages(\"BiocCheck\")'"
+  # build package
+  - docker exec devel /bin/sh -c "cd /mnt;R CMD check *tar.gz"
+  # check package
+  - docker exec devel /bin/sh -c "cd /mnt;R CMD check *tar.gz"
+  # BiocCheck package
+  - docker exec devel /bin/sh -c "cd /mnt;R CMD BiocCheck *tar.gz"

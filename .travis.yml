@@ -1,12 +1,26 @@
-sudo: required
+language: c
+sudo: false
 
-services:
-  - docker
+addons:
+  apt:
+    sources:
+      - r-packages-precise
+    packages:
+      - r-base-dev
+      - r-recommended
+      - pandoc
 
-before_install:
-  - docker pull rocker/r-devel
-  - docker run -d --name devel -v $(pwd -P):/mnt rocker/r-devel
+env:
+  - R_LIBS_USER=~/R/library
+
+cache:
+  directories:
+    $R_LIBS_USER
+
+before_script:
+  - mkdir -p "$R_LIBS_USER"
+  - Rscript -e 'if (!find.package("devtools", quiet = TRUE))) { install.packages("devtools", repos = "http://cran.rstudio.com") }'
+  - Rscript -e 'devtools::install_deps(repos = "http://cran.rstudio.com", dependencies = TRUE)'
 
 script:
-  # install package dependencies
-  - docker exec -ti devel /bin/sh -c "cd /mnt;Rscript -e 'devtools::install_deps(dep=T);devtools::check()'"
+  - Rscript -e 'devtools::check()'

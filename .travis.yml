@@ -6,14 +6,7 @@ services:
 before_install:
   - docker pull bioconductor/devel_base
   - docker run -d --name devel -v $(pwd -P):/mnt bioconductor/devel_base
-  - docker exec devel Rscript -e 'install.packages("devtools")'
 
 script:
   # install package dependencies and BiocCheck
-  - docker exec devel /bin/sh -c "cd /mnt;Rscript -e 'options(repos=BiocInstaller::biocinstallRepos());devtools::install_deps(dep=T);install.packages(\"BiocCheck\")'"
-  # build package
-  - docker exec devel /bin/sh -c "cd /mnt;R CMD check *tar.gz"
-  # check package
-  - docker exec devel /bin/sh -c "cd /mnt;R CMD check *tar.gz"
-  # BiocCheck package
-  - docker exec devel /bin/sh -c "cd /mnt;R CMD BiocCheck *tar.gz"
+  - docker exec devel /bin/sh -c "cd /mnt;Rscript -e 'devtools::install_deps(dep=T);devtools::check()'

@@ -4,9 +4,9 @@ services:
   - docker
 
 before_install:
-  - docker pull bioconductor/devel_base
-  - docker run -d --name devel -v $(pwd -P):/mnt bioconductor/devel_base
+  - docker pull rocker/devel
+  - docker run -d --name devel -v $(pwd -P):/mnt rocker/devel
 
 script:
-  # install package dependencies and BiocCheck
+  # install package dependencies
   - docker exec devel /bin/sh -c "cd /mnt;Rscript -e 'devtools::install_deps(dep=T);devtools::check()'"

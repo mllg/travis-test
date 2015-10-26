@@ -9,4 +9,4 @@ before_install:
 
 script:
   # install package dependencies and BiocCheck
-  - docker exec devel /bin/sh -c "cd /mnt;Rscript -e 'devtools::install_deps(dep=T);devtools::check()'
+  - docker exec devel /bin/sh -c "cd /mnt;Rscript -e 'devtools::install_deps(dep=T);devtools::check()'"

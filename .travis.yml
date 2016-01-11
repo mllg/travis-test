@@ -3,15 +3,20 @@ sudo: false
 
 env:
   - R_LIBS_USER=~/R/library
-  - PATH=$HOME/texlive/bin/x86_64-linux:$HOME/pandoc/:$HOME/r-builder-travis-3.2.3/R-3.2.3/bin/:$PATH
+  - PATH=$HOME/texlive/bin/x86_64-linux:$HOME/r-builder-travis-3.2.3/R-3.2.3/bin:$PATH
 
 cache:
   directories:
     $R_LIBS_USER
 
-before_script:
+before_install:
   - mkdir -p "$R_LIBS_USER"
-  - chmod u+x setup.sh && ./setup.sh
+  - export PATH=$HOME/bin:$HOME/texlive/bin/x86_64-linux:$HOME/r-builder-travis-3.2.3/R-3.2.3/bin/:$PATH
+
+install:
+  - wget -q -O - https://github.com/yihui/crandalf/raw/master/inst/scripts/install-texlive | bash
+  - wget -q -O - https://github.com/yihui/crandalf/raw/master/inst/scripts/install-pandoc | bash
+  - wget -q -O travis-3.2.3.zip 'https://github.com/gaborcsardi/r-builder/archive/travis-3.2.3.zip' && unzip -v travis-3.2.3.zip
   - export PATH=$HOME/texlive/bin/x86_64-linux:$HOME/pandoc/:$HOME/r-builder-travis-3.2.3/R-3.2.3/bin/:$PATH
   - echo $PATH
   - Rscript -e 'if (length(find.package("devtools", quiet = TRUE)) == 0L) { install.packages("devtools", repos = "http://cran.rstudio.com") }'

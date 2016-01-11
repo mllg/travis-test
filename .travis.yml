@@ -2,7 +2,7 @@ language: c
 sudo: false
 
 env:
-  - R_LIBS_USER=~/R/library PATH=$HOME/texlive/bin/x86_64-linux:$HOME/pandoc/:$HOME/r-builder-travis-3.2.3/R-3.2.3/bin:$PATH
+  - R_LIBS_USER=~/R/library PATH=$HOME/texlive/bin/x86_64-linux:$HOME/pandoc/:$HOME/R-bin:$PATH
 
 cache:
   directories:

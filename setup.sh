@@ -9,12 +9,12 @@ curl -L https://gist.github.com/jimhester/bd8740973cc17b7b9713/raw/45ee129b3b543
   #./Configure --prefix=$HOME/curl && \
   #make && make install
 
-curl -L 'http://curl.haxx.se/download/curl-7.46.0.tar.gz' | tar xzC ~ && \
-  pushd ~/curl-7.46.0 && \
-  ./configure --prefix $HOME && \
-  make && make install && \
-  popd
+#curl -L 'http://curl.haxx.se/download/curl-7.46.0.tar.gz' | tar xzC ~ && \
+  #pushd ~/curl-7.46.0 && \
+  #./configure --prefix $HOME && \
+  #make && make install && \
+  #popd
 
-#curl -L https://gist.github.com/jimhester/bd8740973cc17b7b9713/raw/a5bc3d2df06545dbcfe065effe2de2c990feb3e7/curl.tar.xz | tar xJC ~
+curl -L https://gist.github.com/jimhester/bd8740973cc17b7b9713/raw/fd70d47f54ef1df4978aae255e4e24cfb831cda3/curl.tar.xz | tar xJC ~
 
 curl -L -O 'https://github.com/gaborcsardi/r-builder/archive/travis-3.2.3.zip' && unzip -d ~ travis-3.2.3.zip && ln -s ~/r-builder-travis-3.2.3/R-3.2.3 ~/R-bin/

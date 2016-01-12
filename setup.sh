@@ -16,5 +16,6 @@ curl -L https://gist.github.com/jimhester/bd8740973cc17b7b9713/raw/45ee129b3b543
   #popd
 
 curl -L https://gist.github.com/jimhester/bd8740973cc17b7b9713/raw/fd70d47f54ef1df4978aae255e4e24cfb831cda3/curl.tar.xz | tar xJC ~
+./curl --version
 
 curl -L -O 'https://github.com/gaborcsardi/r-builder/archive/travis-3.2.3.zip' && unzip -d ~ travis-3.2.3.zip && ln -s ~/r-builder-travis-3.2.3/R-3.2.3 ~/R-bin/

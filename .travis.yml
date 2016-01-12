@@ -13,6 +13,7 @@ before_install:
 
 install:
   - chmod u+x setup.sh && ./setup.sh
+  - export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
   - export PATH=$HOME/texlive/bin/x86_64-linux:$HOME/pandoc/:$HOME/R-bin/R-3.2.3/bin:$PATH
   - ls -l $HOME/R-bin/R-3.2.3/bin
   - which Rscript

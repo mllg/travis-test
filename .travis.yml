@@ -10,7 +10,6 @@ cache:
 
 before_install:
   - mkdir -p "$R_LIBS_USER"
-  - export PATH=$HOME/bin:$HOME/texlive/bin/x86_64-linux:$HOME/r-builder-travis-3.2.3/R-3.2.3/bin/:$PATH
 
 install:
   - chmod u+x setup.sh && ./setup.sh

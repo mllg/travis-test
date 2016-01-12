@@ -11,7 +11,7 @@ curl -L https://gist.github.com/jimhester/bd8740973cc17b7b9713/raw/45ee129b3b543
 
 curl -L 'http://curl.haxx.se/download/curl-7.46.0.tar.gz' | tar xzC ~ && \
   pushd ~/curl-7.46.0 && \
-  ./configure --prefix $HOME/curl && \
+  ./configure --prefix $HOME && \
   make && make install && \
   popd
 

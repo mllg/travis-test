@@ -13,9 +13,9 @@ before_install:
 
 install:
   - chmod u+x setup.sh && ./setup.sh
-  - export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
-  - export PATH=$HOME/texlive/bin/x86_64-linux:$HOME/R-bin/R-3.2.3/bin:$PATH
   - ls -l $HOME/R-bin/R-3.2.3/bin
+  - export LD_LIBRARY_PATH=$HOME/lib:$HOME/R-bin/R-3.2.3/lib:$LD_LIBRARY_PATH
+  - export PATH=$HOME/texlive/bin/x86_64-linux:$HOME/R-bin/R-3.2.3/bin:$PATH
   - ldd $HOME/R-bin/R-3.2.3/lib/R/bin/exec/R
   - Rscript -e 'if (length(find.package("devtools", quiet = TRUE)) == 0L) { install.packages("devtools", repos = "http://cran.wustl.edu/") }'
   - Rscript -e 'devtools::update_packages("devtools", repos = "http://cran.wustl.edu/")'

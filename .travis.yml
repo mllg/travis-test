@@ -1,6 +1,8 @@
 language: r
 sudo: false
 
+setup: false
+
 env:
   - R_LIBS_USER=~/R/library
 

@@ -1,7 +1,11 @@
 language: r
 sudo: false
 
-setup: false
+configure:
+  - echo "configure\n"
+
+setup:
+  - echo "setup\n"
 
 env:
   - R_LIBS_USER=~/R/library

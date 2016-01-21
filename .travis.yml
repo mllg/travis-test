@@ -1,5 +1,5 @@
 language: r
-sudo: false
+sudo: 'false'
 
 env:
   - R_LIBS_USER=~/R/library

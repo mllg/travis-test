@@ -4,9 +4,7 @@ sudo: false
 env:
   - R_LIBS_USER=~/R/library
 
-cache:
-  directories:
-    $R_LIBS_USER
+cache: R
 
 before_install:
   - mkdir -p "$R_LIBS_USER" ~/R-bin

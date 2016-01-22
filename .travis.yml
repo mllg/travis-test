@@ -1,23 +1,4 @@
 language: r
 sudo: false
 
-env:
-  - R_LIBS_USER=~/R/library
-
 cache: R
-
-before_install:
-  - mkdir -p "$R_LIBS_USER" ~/R-bin
-
-#install:
-  #- chmod u+x setup.sh && ./setup.sh
-  #- ls -l $HOME/R-bin/R-3.2.3/bin
-  #- export LD_LIBRARY_PATH=$HOME/lib:$HOME/R-bin/R-3.2.3/lib:$LD_LIBRARY_PATH
-  #- export PATH=$HOME/texlive/bin/x86_64-linux:$HOME/R-bin/R-3.2.3/bin:$PATH
-  #- ldd $HOME/R-bin/R-3.2.3/lib/R/bin/exec/R
-  #- Rscript -e 'if (length(find.package("devtools", quiet = TRUE)) == 0L) { install.packages("devtools", repos = "http://cran.wustl.edu/") }'
-  #- Rscript -e 'devtools::update_packages("devtools", repos = "http://cran.wustl.edu/")'
-  #- Rscript -e 'devtools::install_deps(repos = "http://cran.wustl.edu/", dependencies = TRUE)'
-
-#script:
-  #- Rscript -e 'devtools::check()'

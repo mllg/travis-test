@@ -1,4 +1,6 @@
 language: R
 sudo: false
 
-cache: r
+cache: packages
+
+script: kpsewhich -var-value TEXMFHOME

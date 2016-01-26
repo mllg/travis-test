@@ -4,4 +4,6 @@ sudo: false
 cache: R
 
 before_install:
+  - setup.sh
   - export PATH=$HOME/R-bin/bin:$PATH
+  - Rscript -e 'sessionInfo()'

@@ -3,4 +3,5 @@ sudo: false
 
 cache: R
 
-script: kpsewhich -var-value TEXMFHOME
+before_install:
+  - export PATH=$HOME/R-bin/bin:$PATH

@@ -10,3 +10,4 @@ before_install:
 
 after_script:
   set -e; false
+

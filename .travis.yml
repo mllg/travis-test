@@ -3,10 +3,10 @@ sudo: required
 
 cache: R
 
-before_install:
-  - chmod u+x setup.sh;./setup.sh
-  - export PATH=$HOME/R-bin/bin:$PATH
-  - Rscript -e 'sessionInfo()'
+#before_install:
+  #- chmod u+x setup.sh;./setup.sh
+  #- export PATH=$HOME/R-bin/bin:$PATH
+  #- Rscript -e 'sessionInfo()'
 
 after_script:
   set -e; false

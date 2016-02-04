@@ -3,8 +3,8 @@ language: R
 cache: packages
 
 before_install:
-  - chmod u+x setup.sh;./setup.sh
-  - export PATH=$HOME/R-bin/bin:$PATH
-  - export LD_LIBRARY_PATH=$HOME/R-bin/lib:$LD_LIBRARY_PATH
-  - Rscript -e 'sessionInfo()'
+  #- chmod u+x setup.sh;./setup.sh
+  #- export PATH=$HOME/R-bin/bin:$PATH
+  #- export LD_LIBRARY_PATH=$HOME/R-bin/lib:$LD_LIBRARY_PATH
+  #- Rscript -e 'sessionInfo()'
   - echo "$_R_CHECK_CRAN_INCOMING_"

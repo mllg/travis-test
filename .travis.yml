@@ -1,12 +1,8 @@
 language: R
-sudo: required
 
-cache: R
+cache: packages
 
-#before_install:
-  #- chmod u+x setup.sh;./setup.sh
-  #- export PATH=$HOME/R-bin/bin:$PATH
-  #- Rscript -e 'sessionInfo()'
-
-after_script:
-  set -e; false
+before_install:
+  - chmod u+x setup.sh;./setup.sh
+  - export PATH=$HOME/R-bin/bin:$PATH
+  - Rscript -e 'sessionInfo()' 

@@ -1,5 +1,7 @@
 language: R
 
+cache: packages
+
 before_install:
   - chmod u+x setup.sh;./setup.sh
   - export PATH=$HOME/R-bin/bin:$PATH

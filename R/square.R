@@ -3,7 +3,7 @@
 #'   Number to square.
 #' @return Square of \code{x}.
 #' @export
-square = function(x, y) {
+square = function(x) {
     assertNumber(x, na.ok = FALSE)
     x^2
 }

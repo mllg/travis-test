@@ -1,5 +1,9 @@
 language: R
 
+repos:
+  - CRAN: "http://cran.rstudio.org"
+  - ropensci: "packages.ropensci.org"
+
 bioc_required: true
 
 cache: packages

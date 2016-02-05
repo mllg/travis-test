@@ -5,6 +5,8 @@ bioc_required: true
 cache: packages
 
 before_install:
+  - cat ~/.Rprofile
+  - locate .Rprofile
   #- chmod u+x setup.sh;./setup.sh
   #- export PATH=$HOME/R-bin/bin:$PATH
   #- export LD_LIBRARY_PATH=$HOME/R-bin/lib:$LD_LIBRARY_PATH

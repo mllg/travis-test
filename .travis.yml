@@ -1,5 +1,7 @@
 language: R
 
+bioc_required: true
+
 cache: packages
 
 before_install:

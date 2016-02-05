@@ -6,6 +6,8 @@ cache: packages
 
 before_install:
   - cat ~/.Rprofile
+  - Rscripte -e 'options("repos")'
+
   - locate .Rprofile
   #- chmod u+x setup.sh;./setup.sh
   #- export PATH=$HOME/R-bin/bin:$PATH

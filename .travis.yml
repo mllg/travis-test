@@ -1,6 +1,6 @@
 language: R
 
-bioc_required: false
+bioc_required: true
 
 cache: packages
 

@@ -1,6 +1,8 @@
 language: R
 
-cran: "http://cran.rstudio.org"
+repos:
+  CRAN: "http://cran.rstudio.org"
+  ropensci: "packages.ropensci.org"
 
 bioc_required: true
 

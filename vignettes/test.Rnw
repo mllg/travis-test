@@ -2,6 +2,7 @@
 %\VignetteIndexEntry{Algorightms and Equations}
 %\VignetteEngine{knitr::knitr}
 \usepackage{fullpage}
+\usepackage{mathtools}
 \begin{document}
 
 hi

@@ -1,0 +1,9 @@
+\documentclass[letterpaper]{article}
+%\VignetteIndexEntry{Algorightms and Equations}
+%\VignetteEngine{knitr::knitr}
+\usepackage{fullpage}
+\begin{document}
+
+hi
+
+\end{document}

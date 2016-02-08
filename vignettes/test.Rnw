@@ -3,6 +3,14 @@
 %\VignetteEngine{knitr::knitr}
 \usepackage{fullpage}
 \usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{color}
+\usepackage{fullpage}
+\usepackage{makeidx}
+\usepackage{longtable}
+\usepackage{natbib}
+\usepackage{bm}
 \begin{document}
 
 hi

@@ -1,8 +1,15 @@
 language: R
 
+addons:
+  apt:
+    sources:
+    - r-packages-precise
+    packages:
+    - libcurl4-openssl-dev
+
 repos:
-  CRAN: "http://cran.rstudio.org"
-  ropensci: "packages.ropensci.org"
+  CRAN: "https://cran.rstudio.org"
+  ropensci: "https://packages.ropensci.org"
 
 cache: packages
 

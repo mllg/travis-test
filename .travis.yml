@@ -1,27 +1,25 @@
-language: c
-sudo: false
+language: R
 
 addons:
   apt:
     sources:
-      - r-packages-precise
+    - r-packages-precise
     packages:
-      - r-base-dev
-      - r-recommended
-      - pandoc
+    - libcurl4-openssl-dev
 
-env:
-  - R_LIBS_USER=~/R/library
+repos:
+  CRAN: "https://cran.rstudio.org"
+  ropensci: "https://packages.ropensci.org"
 
-cache:
-  directories:
-    $R_LIBS_USER
+cache: packages
 
-before_script:
-  - mkdir -p "$R_LIBS_USER"
-  - Rscript -e 'if (length(find.package("devtools", quiet = TRUE)) == 0L) { install.packages("devtools", repos = "http://cran.rstudio.com") }'
-  - Rscript -e 'devtools::update_packages("devtools", repos = "http://cran.rstudio.com")'
-  - Rscript -e 'devtools::install_deps(repos = "http://cran.rstudio.com", dependencies = TRUE)'
-
-script:
-  - Rscript -e 'devtools::check()'
+before_install:
+  - cat ~/.Rprofile
+  - Rscript -e 'options("repos")'
+  #- chmod u+x setup.sh;./setup.sh
+  #- export PATH=$HOME/R-bin/bin:$PATH
+  #- export LD_LIBRARY_PATH=$HOME/R-bin/lib:$LD_LIBRARY_PATH
+  #- Rscript -e 'sessionInfo()'
+  - echo "$_R_CHECK_CRAN_INCOMING_"
+  - echo "$TRAVIS_PULL_REQUEST"
+  - echo "$TRAVIS_REPO_SLUG"

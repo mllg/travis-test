@@ -7,4 +7,5 @@ Maintainer: Michel Lang <michellang@gmail.com>
 Description: This is a useless package description.
 License: GPL-2
 Imports: checkmate
-Suggests: testthat
+Suggests: testthat, knitr
+VignetteBuilder: knitr
